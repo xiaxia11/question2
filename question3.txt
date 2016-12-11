@@ -1,0 +1,91 @@
+41.解释在ie低版本下的怪异盒模型  和c3的怪异盒模型 和 弹性盒模型?
+  IE当padding+border的值小于width或者height:
+盒模型的宽度=margin(左右)+width（width已经包含了padding和border的值）
+盒模型的高度=margin(上下)+height（height已经包含了padding和border的值）
+   当padding+border的值大于width或者height:
+盒模型的宽度=margin(左右)+padding(左右)+border(左右)
+盒模型的高度=margin(上下)+padding(上下)+border(上下)+19px （加一个默认行高 19px）
+  所以相当于是padding+border和width或者height比大小，谁大取谁。
+以上几种DOCTYPE都是标准的文档类型，无论使用哪种模式完整定义DOCTYPE，都会触发标准模式，而如果DOCTYPE缺失则在ie6，ie7，ie8下将会触发怪异模式（quirks 模式）
+CSS3box-sizing有两个值一个是content-box，另一个是border-box。
+    当设置为box-sizing:content-box时，将采用标准模式解析计算，也是默认模式；
+当设置为box-sizing:border-box时，将采用怪异模式解析计算；
+Css3弹性盒模型引入了新的盒子模型—弹性盒模型，该模型决定一个盒子在其他盒子中的分布方式以及如何处理可用的空间。使用该模型，可以很轻松的创建自适应浏览器窗口的流动布局或自适应字体大小的弹性布局。
+42.animation对应的属性
+写法：animation: name duration timing-function delay iteration-count direction;
+下面是对应的属性的介绍
+animation-name        规定需要绑定到选择器的 keyframe 名称。。
+animation-duration        规定完成动画所花费的时间，以秒或毫秒计。
+animation-timing-function        规定动画的速度曲线。
+animation-delay        规定在动画开始之前的延迟。
+animation-iteration-count        规定动画应该播放的次数。
+animation-direction        规定是否应该轮流反向播放动画。
+43.transition?
+    css的transition允许css的属性值在一定的时间区间内平滑地过渡。这种效果可以在鼠标单击、获得焦点、被点击或对元素任何改变中触发，并圆滑地以动画效果改变CSS的属性值
+注意区别transform，transform是进行2D转换的 如移动，比例化，反过来，旋转，和拉伸元素。
+44.h5新特性？
+1、绘画的 canvas 元素
+2、用于媒介回放的 video 和 audio 元素
+3、对本地离线存储的更好的支持
+4、新的特殊内容元素，比如 article、footer、header、nav、section
+5、新的表单控件，比如 calendar、date、time、email、url、search
+45.canvas 如何绘制一个三角形|正方形
+ moveto 是移动到某个坐标， lineto 是从当前坐标连线到某个坐标。这两个函数加起来就是画一条直线。 画线要用“笔”，那么MoveTo()把笔要画的起始位置固定了（x,y）然后要固定终止位置要用到LineTo函数确定终止位置（xend,yend）,这样一条线就画出来了。 每次与前面一个坐标相连 。
+stroke() 方法会实际地绘制出通过 moveTo() 和 lineTo() 方法定义的路径。默认颜色是黑色。
+<!DOCTYPE HTML5>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>画布</title>
+  </head> 
+<body>
+     <canvas id="myCanvas" width="200" height="100" style="border:1px solid #c3c3c3;">
+     Your browser does not support the canvas element.
+     </canvas>
+     <script type="text/javascript">
+         var c=document.getElementById("myCanvas");
+//三角形
+         var cxt=c.getContext("2d");
+         cxt.moveTo(10,10);
+         cxt.lineTo(50,50);
+         cxt.lineTo(10,50);
+         cxt.lineTo(10,10);
+         cxt.stroke();
+//正方形
+         var cxt2=c.getContext("2d");
+         cxt2.moveTo(60,10);
+         cxt2.lineTo(100,10);
+         cxt2.lineTo(100,50);
+         cxt2.lineTo(60,50);
+         cxt2.lineTo(60,10);
+         cxt2.stroke(); 
+     </script>
+</body>
+</html>
+46、所用bootstap版本？
+3.0
+
+47、css清除浮动的几种方式？
+1、父级div定义 height 
+2、结尾处加空div标签 clear:both 
+3、父级div定义 伪类:after 和 zoom   
+4、父级div定义 overflow:hidden   
+5、父级div定义 overflow:auto   
+6、父级div 也一起浮动 
+7、父级div定义 display:table
+48、为什么要初始化CSS样式。
+因为浏览器的兼容问题，不同浏览器对有些标签的默认值是不同的，如果没对CSS初始化往往会出现浏览器之间的页面显示差异。
+49、CSS3有哪些新特性？
+CSS3实现圆角（border-radius），阴影（box-shadow），
+对文字加特效（text-shadow、），线性渐变（gradient），旋转（transform）
+transform:rotate(9deg) scale(0.85,0.90) translate(0px,-30px) skew(-9deg,0deg);//旋转,缩放,定位,倾斜
+增加了更多的CSS选择器  多背景 rgba 
+在CSS3中唯一引入的伪元素是::selection.
+媒体查询，多栏布局     border-image
+50、解释下 CSS sprites，以及你要如何在页面或网站中使用它。
+CSS Sprites其实就是把网页中一些背景图片整合到一张图片文件中，再利用CSS的“background-image”，“background- repeat”，“background-position”的组合进行背景定位，background-position可以用数字能精确的定位出背景图片的位置。这样可以减少很多图片请求的开销，因为请求耗时比较长；请求虽然可以并发，但是也有限制，一般浏览器都是6个。对于未来而言，就不需要这样做了，因为有了`http2`。
+51、什么是 FOUC（无样式内容闪烁）？你如何来避免 FOUC？
+FOUC - Flash Of Unstyled Content 文档样式闪烁
+<style type="text/css" media="all">@import "../fouc.css";</style> 
+而引用CSS文件的@import就是造成这个问题的罪魁祸首。IE会先加载整个HTML文档的DOM，然后再去导入外部的CSS文件，因此，在页面DOM加载完成到CSS导入完成中间会有一段时间页面上的内容是没有样式的，这段时间的长短跟网速，电脑速度都有关系。
+解决方法：只要在<head>之间加入一个<link>或者<script>元素就可以了。

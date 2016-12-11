@@ -1,0 +1,114 @@
+20.简述前端优化的方式 旧的雅虎34条|h5新添加的方式
+1、尽量减少HTTP请求次数
+2、减少DNS查找次数
+3、避免跳转
+4、可缓存的AJAX
+5、推迟加载内容
+6、预加载
+    7、减少DOM元素数量
+8、根据域名划分页面内容
+    9、使iframe的数量最小
+10、不要出现404错误
+11、使用内容分发网络
+12、为文件头指定Expires或Cache-Control        13、Gzip压缩文件内容
+14、配置ETag
+15、尽早刷新输出缓冲
+16、使用GET来完成AJAX请求
+17、把样式表置于顶部
+18、避免使用CSS表达式（Expression）
+19、使用外部JavaScript和CSS
+20、削减JavaScript和CSS
+21、用<link>代替@import
+22、避免使用滤镜
+23、把脚本置于页面底部
+24、剔除重复脚本
+
+21.jquery版本?1.11兼容?
+Query 2.x系列和 jQuery 1.x拥有同样的API，但是不再支持IE6、7、8。
+推荐使用 1.x version，除非你确定IE6、7、8用户不再访问网站。
+jquery1.11属于1.x 版本，其兼容IE6、7、8，所以也支持IE9.
+22.块级？行内？空元素?
+答：行内元素：和有他元素都在一行上，高度、行高及外边距和内边距都不可改变，文字图片的宽度不可改变，只能容纳文本或者其他行内元素
+块级元素：总是在新行上开始，高度、行高及外边距和内边距都可控制，可以容纳内敛元素和其他元素；
+空元素：在HTML元素中，没有内容的 HTML 元素被称为空元素。空元素是在开始标签中关闭的。<br> 就是没有关闭标签的空元素。
+23.media属性？screen？All？max-width?min-width?
+答：media 属性规定被链接文档将显示在什么设备上。media 属性用于为不同的媒介类型规定不同的样式。Screen计算机默认屏幕，all适用于所有设备，max-width超过最大宽度就不执行，min-width必须大于最小宽度才执行。
+24.meta标签的name属性值？
+答：name 属性主要用于描述网页，与之对应的属性值为content，content中的内容主要是便于搜索引擎机器人查找信息和分类信息用的。meta标签的name
+属性语法格式是：＜meta name="参数" content="
+具体的参数值"＞。其中name属性主要有以下几种参数：A 、Keywords(关键字)说明：keywords用来告诉搜索引擎你网页的关键字是什么。B 、description(网站内容描述) 说明：description用来告诉搜索引擎你的网站主要内容.
+ C robots(机器人向导)说明：
+robots用来告诉搜索机器人哪些页面需要索引，哪些页面不需要索引。content的参数有all,none,index,noindex,follow,nofollow
+。默认是all。举例：＜meta name="robots" content="none"＞D 、author(作者) 
+25.一般做手机页面切图有几种方式?
+答：三种。响应式布局，弹性布局display：flex，利用js编写设定比例，给根元素设定像素，使用rem为单位。
+px/em/rem有什么区别？ 为什么通常给font-size 设置的字体为62.5% 
+答：px像素是相对长度单位。像素px是相对于显示器屏幕分辨率而言的。em是相对长度单位。相对于当前对象内文本的字体尺寸。如当前对行内文本的字体尺寸未被人为设置，则相对于浏览器的默认字体尺寸。1、em的值并不是固定的；2、em会继承父级元素的字体大小。使用rem为元素设定字体大小时，仍然是相对大小，但相对的只是HTML根元素。这个单位可谓集相对大小和绝对大小的优点于一身，通过它既可以做到只修改根元素就成比例地调整所有字体大小，又可以避免字体大小逐层复合的连锁反应。
+rem是相对于浏览器进行缩放的。1rem默认是16px，在响应式布局中，一个个除来转换成rem，太麻烦，所以重置rem
+body{font-size=62.5%    } 此时1rem = 10px;若是12px则是1.2rem.
+26.sass和scss有什么区别?sass一般怎么样编译的
+答：文件扩展名不同，Sass 是以“.sass”后缀为扩展名，而 SCSS 是以“.scss”后缀为扩展名；语法书写方式不同，Sass 是以严格的缩进式语法规则来书写，不带大括号({})和分号(;)，而 SCSS 的语法书写和我们的 CSS 语法书写方式非常类似。
+27.如果对css进行优化 如何处理？
+答：压缩打包，图片整合，避免使用Hack，解决兼容问题，使用简写，让CSS能保证日后的维护。
+28.如何对css文件进行压缩合并? gulp ?
+答：使用gulp。
+1、首页全局安装gulp。
+1 npm install --global gulp 
+2、其次局部安装gulp。npm install gulp --save-dev
+3、在项目根目录下创建一个名为 gulpfile.js 的文件
+var gulp = require('gulp');
+gulp.task('default', function() {
+// 将你的默认的任务代码放在这});
+4、运行gulp。（默认的名为 default 的任务（task）将会被运行，想要单独执行特定的任务（task），请输入 gulp <task> <othertask>）
+gulp
+  合并和压缩JS、CSS文件
+压缩JS，CSS文件需要引用如下组件：
+gulp-minify-css: 压缩css
+29.组件? 模块化编程？
+组件化编程: 将js css html包装一起提供方法和效果；
+模块化化: 将相同的功能抽取出来 存放在一个位置进行编程
+30.图片和文字在同一行显示?
+1 在css中给div添加上“vertical-align:middle”属性。 
+2 分别把图片和文字放入不同的div中，然后用“margin”属性进行定位，就可以使他们显示在同一行。
+3 把图片设置为背景图片。
+31.禁止事件冒泡
+event.stopPropagation()
+32.禁止默认事件
+event.preventDefault()
+33.a标签中 active hover link visited 正确的设置顺序是什么?
+a标签的link、visited、hover、active是有一定顺序的
+a:link  
+a:visited  
+a:hover 
+a:active   
+34.a标签中 如何禁用href 跳转页面 或 定位链接 
+        e.preventDefault();
+        href="javascript:void(0);
+35.手机端上 图片长时间点击会选中图片，如何处理?
+onselect=function() {
+return false
+}
+36.video标签的几个个属性方法
+src：视频的URL   poster：视频封面，没有播放时显示的图片   preload：预加载    autoplay：自动播放   loop：循环播放  controls：浏览器自带的控制条    width：视频宽度    height：视频高度
+37.常见的视频编码格式有几种?视频格式有几种?
+视频格式：MPEG-1、MPEG-2和MPEG4 、AVI 、RM、ASF和WMV格式 
+视频编码格式：H.264、MPEG-4、MPEG-2、WMA-HD以及VC-1
+38.canvas在标签上设置宽高 和在style中设置宽高有什么区别？
+canvas标签的width和height是画布实际宽度和高度，绘制的图形都是在这个上面。而style的width和height是canvas在浏览器中被渲染的高度和宽度。如果canvas的width和height没指定或值不正确，就被设置成默认值 。
+39.border-image？box-sizing?
+Border-image : 图形化边框
+Box-sizing : 属性允许您以特定的方式定义匹配某个区域的特定元素。
+语法 ：box-sizing：content-box | border-box
+Content-box : padding和border不被包含在定义的width和height之内。对象的实际宽度等于设置的width值和border、padding之和，即 ( Element width = width + border + padding) 此属性表现为标准模式下的盒模型 .
+Border-box : padding和border被包含在定义的width和height之内。对象的实际宽度就等于设置的width值，即使定义有border和padding也不会改变对象的实际宽度，即 ( Element width = width ) 此属性表现为怪异模式下的盒模型。
+40.渐进增强和优雅降级
+渐进增强 progressive enhancement：针对低版本浏览器进行构建页面，保证最基本的功能，然后再针对高级浏览器进行效果、交互等改进和追加功能达到更好的用户体验。
+优雅降级 graceful degradation：一开始就构建完整的功能，然后再针对低版本浏览器进行兼容。
+区别：优雅降级是从复杂的现状开始，并试图减少用户体验的供给，而渐进增强则是从一个非常基础的，能够起作用的版本开始，并不断扩充，以适应未来环境的需要。降级（功能衰减）意味着往回看；而渐进增强则意味着朝前看，同时保证其根基处于安全地带。
+“优雅降级”观点
+“优雅降级”观点认为应该针对那些最高级、最完善的浏览器来设计网站。而将那些被认为“过时”或有功能缺失的浏览器下的测试工作安排在开发周期的最后阶段，并把测试对象限定为主流浏览器（如 IE、Mozilla 等）的前一个版本。
+在这种设计范例下，旧版的浏览器被认为仅能提供“简陋却无妨 (poor, but passable)” 的浏览体验。你可以做一些小的调整来适应某个特定的浏览器。但由于它们并非我们所关注的焦点，因此除了修复较大的错误之外，其它的差异将被直接忽略。
+“渐进增强”观点
+“渐进增强”观点则认为应关注于内容本身。
+内容是我们建立网站的诱因。有的网站展示它，有的则收集它，有的寻求，有的操作，还有的网站甚至会包含以上的种种，但相同点是它们全都涉及到内容。这使得“渐进增强”成为一种更为合理的设计范例。这也是它立即被 Yahoo! 所采纳并用以构建其“分级式浏览器支持 (Graded Browser Support)”策略的原因所在。
+那么问题来了。现在产品经理看到IE6,7,8网页效果相对高版本现代浏览器少了很多圆角，阴影（CSS3），要求兼容（使用图片背景，放弃CSS3），你会如何说服他？

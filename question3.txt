@@ -35,6 +35,8 @@ css的transition允许css的属性值在一定的时间区间内平滑地过渡。这种效果可以在鼠标单
 3、对本地离线存储的更好的支持
 4、新的特殊内容元素，比如 article、footer、header、nav、section
 5、新的表单控件，比如 calendar、date、time、email、url、search
+
+
 45.canvas 如何绘制一个三角形|正方形
  moveto 是移动到某个坐标， lineto 是从当前坐标连线到某个坐标。这两个函数加起来就是画一条直线。 画线要用“笔”，那么MoveTo()把笔要画的起始位置固定了（x,y）然后要固定终止位置要用到LineTo函数确定终止位置（xend,yend）,这样一条线就画出来了。 每次与前面一个坐标相连 。
 stroke() 方法会实际地绘制出通过 moveTo() 和 lineTo() 方法定义的路径。默认颜色是黑色。

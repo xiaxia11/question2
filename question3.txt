@@ -11,6 +11,8 @@ CSS3box-sizing有两个值一个是content-box，另一个是border-box。
     当设置为box-sizing:content-box时，将采用标准模式解析计算，也是默认模式；
 当设置为box-sizing:border-box时，将采用怪异模式解析计算；
 Css3弹性盒模型引入了新的盒子模型—弹性盒模型，该模型决定一个盒子在其他盒子中的分布方式以及如何处理可用的空间。使用该模型，可以很轻松的创建自适应浏览器窗口的流动布局或自适应字体大小的弹性布局。
+
+
 42.animation对应的属性
 写法：animation: name duration timing-function delay iteration-count direction;
 下面是对应的属性的介绍

@@ -22,8 +22,10 @@ animation-timing-function        规定动画的速度曲线。
 animation-delay        规定在动画开始之前的延迟。
 animation-iteration-count        规定动画应该播放的次数。
 animation-direction        规定是否应该轮流反向播放动画。
+
+
 43.transition?
-    css的transition允许css的属性值在一定的时间区间内平滑地过渡。这种效果可以在鼠标单击、获得焦点、被点击或对元素任何改变中触发，并圆滑地以动画效果改变CSS的属性值
+css的transition允许css的属性值在一定的时间区间内平滑地过渡。这种效果可以在鼠标单击、获得焦点、被点击或对元素任何改变中触发，并圆滑地以动画效果改变CSS的属性值
 注意区别transform，transform是进行2D转换的 如移动，比例化，反过来，旋转，和拉伸元素。
 44.h5新特性？
 1、绘画的 canvas 元素
